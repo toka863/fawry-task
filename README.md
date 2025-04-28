@@ -25,22 +25,22 @@ Question 2 answer:
 - Implemented fixes for DNS settings, firewall rules, and web services.
 - Configured /etc/hosts and updated DNS settings with systemd-resolve.
 
-DNS CHECK
+ DNS CHECK
 
-Used nslookup to test DNS locally and with 8.8.8.8.
-Found that local DNS couldn't resolve the domain.
-The problem is likely with internal DNS settings or the network.
-
-
-POSSIBLE CAUSES
-
-DNS Issues: Wrong /etc/resolv.conf settings, DNS server offline, or domain only available internally.
-Network Issues: Firewall blocking required ports or incorrect routing configurations.
-Service Issues: Web server is down or configured to bind only to 127.0.0.1 instead of an external IP.
+- Used nslookup to test DNS locally and with 8.8.8.8.
+- Found that local DNS couldn't resolve the domain.
+- The problem is likely with internal DNS settings or the network.
 
 
-SOLUTION APPLIED
+ POSSIBLE CAUSES
 
-DNS - Incorrect Server → Checked with cat /etc/resolv.conf, then updated to the correct DNS IP.
-Service Not Listening → Verified with ss -tuln, updated the server configuration,and restarted the web service.
+- DNS Issues: Wrong /etc/resolv.conf settings, DNS server offline, or domain only available internally.
+- Network Issues: Firewall blocking required ports or incorrect routing configurations.
+- Service Issues: Web server is down or configured to bind only to 127.0.0.1 instead of an external IP.
+
+
+ SOLUTION APPLIED
+
+- DNS - Incorrect Server → Checked with cat /etc/resolv.conf, then updated to the correct DNS IP.
+- Service Not Listening → Verified with ss -tuln, updated the server configuration,and restarted the web service.
 
